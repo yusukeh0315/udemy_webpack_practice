@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
+    devtool: 'source-map',
     entry: './src/javascripts/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -32,7 +34,10 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: false,
+                        }
                     },
                     {
                         loader: 'sass-loader'
